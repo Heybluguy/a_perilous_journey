@@ -1,4 +1,4 @@
-require 'pry'
+krequire 'pry'
 require './lib/node'
 
 class LinkedList
@@ -28,10 +28,11 @@ class LinkedList
       attach(head.next_node, node)
     end
   end
-#plus 1 for everynew node
+#plus 1 for every new node
   def add_to_count
     @count += 1
   end
+
 #concatenating families together until I've reached the last node
   def turn_to_string
     caravan = "The #{head.surname} family"
@@ -42,6 +43,7 @@ class LinkedList
     end
     return caravan
   end
+
 #add a family to beginning of the caravan
   def prepend(surname)
     new_node = Node.new(surname)
@@ -97,20 +99,17 @@ class LinkedList
     return caravan
   end
 
+  #start at the head
   def includes?(surname)
-    #start at the head
     current = head
-    #go to every node
     until current == nil
-      #if I find it matches current's surname
       if current.surname == surname
-        return true
+        return true      #matches current's surname
       else
         #keep going in loop
         current = current.next_node
       end
-      #if haven't been found
-      return false
+      return false   #if haven't been found
     end
   end
 end
